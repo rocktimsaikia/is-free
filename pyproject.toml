@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "isfree"
-version = "0.0.1"
+version = "1.0.0"
 description = 'Check if a domain is available using DNS'
 readme = "README.md"
 requires-python = ">=3.8"
