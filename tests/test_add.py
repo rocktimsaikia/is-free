@@ -23,4 +23,5 @@ class TestIsFree(unittest.TestCase):
         """Test handling of invalid domain format."""
         is_available, message = check_domain_availability("invalid..domain")
         # Should return None (error) or handle gracefully
-        self.assertIn("Error", message)
+        self.assertIsNone(is_available)
+        self.assertTrue("Invalid" in message or "Error" in message)
