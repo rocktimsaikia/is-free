@@ -1,11 +1,2 @@
-cfgv==3.5.0
-distlib==0.4.0
-dnspython==2.8.0
-filelock==3.20.1
-identify==2.6.15
--e git+ssh://git@github.com/rocktimsaikia/is-free.git@5a8ebc882d766461b6fa7c193900f7262745402b#egg=isfree
-nodeenv==1.10.0
-platformdirs==4.5.1
-pre_commit==4.5.1
-PyYAML==6.0.3
-virtualenv==20.35.4
+# Use uv for dependency management
+# Install with: uv pip install -e ".[dev]"
