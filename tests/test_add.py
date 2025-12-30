@@ -1,5 +1,6 @@
-from package import check_domain_availability
 import unittest
+
+from package import check_domain_availability
 
 
 class TestIsFree(unittest.TestCase):

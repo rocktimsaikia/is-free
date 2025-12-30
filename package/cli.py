@@ -1,4 +1,5 @@
 import sys
+
 from .main import check_domain_availability
 
 

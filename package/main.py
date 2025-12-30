@@ -1,6 +1,7 @@
-import dns.resolver
-import dns.exception
 from typing import Tuple
+
+import dns.exception
+import dns.resolver
 
 
 def check_domain_availability(domain: str) -> Tuple[bool, str]:
@@ -16,7 +17,7 @@ def check_domain_availability(domain: str) -> Tuple[bool, str]:
         - status_message: "AVAILABLE", "TAKEN", or error message
     """
     # Validate TLD by checking if it has NS records
-    parts = domain.split('.')
+    parts = domain.split(".")
     if len(parts) < 2:
         return None, "Invalid domain format"
 
@@ -29,7 +30,7 @@ def check_domain_availability(domain: str) -> Tuple[bool, str]:
 
         # Check if TLD is valid by querying its NS records
         try:
-            resolver.resolve(tld, 'NS')
+            resolver.resolve(tld, "NS")
         except dns.resolver.NXDOMAIN:
             return None, f"Invalid TLD: .{tld}"
         except (dns.resolver.NoAnswer, dns.resolver.NoNameservers):
@@ -38,7 +39,7 @@ def check_domain_availability(domain: str) -> Tuple[bool, str]:
 
         # Try NS records first
         try:
-            answers = resolver.resolve(domain, 'NS')
+            answers = resolver.resolve(domain, "NS")
             if answers:
                 return False, "TAKEN"
         except dns.resolver.NXDOMAIN:
@@ -50,7 +51,7 @@ def check_domain_availability(domain: str) -> Tuple[bool, str]:
 
         # Fall back to A record check
         try:
-            answers = resolver.resolve(domain, 'A')
+            answers = resolver.resolve(domain, "A")
             if answers:
                 return False, "TAKEN"
         except dns.resolver.NXDOMAIN:
