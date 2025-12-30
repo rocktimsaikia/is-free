@@ -3,15 +3,15 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "package"
+name = "isfree"
 version = "0.0.1"
-description = 'This is the description of the package'
+description = 'Check if a domain is available using DNS'
 readme = "README.md"
 requires-python = ">=3.8"
 license = { file = "LICENSE" }
-keywords = []
+keywords = ["domain", "dns", "availability", "cli"]
 authors = [{ name = "Rocktim Saikia", email = "rocktimthedev@gmail.com" }]
-dependencies = []
+dependencies = ["dnspython>=2.0.0"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -25,3 +25,6 @@ classifiers = [
 homepage = "https://github.com/rocktimsaikia/package"
 repository = "https://github.com/rocktimsaikia/package"
 issues = "https://github.com/rocktimsaikia/package/issues"
+
+[project.scripts]
+isfree = "package.cli:main"

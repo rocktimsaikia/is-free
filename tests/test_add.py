@@ -1,11 +1,25 @@
-from package import add
+from package import check_domain_availability
 import unittest
 
 
-class TestPackge(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(add(1, 2), 3)
+class TestIsFree(unittest.TestCase):
+    def test_taken_domain(self):
+        """Test that google.com is taken."""
+        is_available, message = check_domain_availability("google.com")
+        self.assertFalse(is_available)
+        self.assertEqual(message, "TAKEN")
 
-    def test_add_throws(self):
-        with self.assertRaises(AssertionError):
-            self.assertEqual(add(1, 2), 4)
+    def test_available_domain(self):
+        """Test that a nonsense domain is available."""
+        # Using a very unlikely domain name
+        is_available, message = check_domain_availability(
+            "thisdomainshoulddefinitelynotexist12345678.com"
+        )
+        self.assertTrue(is_available)
+        self.assertEqual(message, "AVAILABLE")
+
+    def test_invalid_domain(self):
+        """Test handling of invalid domain format."""
+        is_available, message = check_domain_availability("invalid..domain")
+        # Should return None (error) or handle gracefully
+        self.assertIn("Error", message)

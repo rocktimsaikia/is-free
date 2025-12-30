@@ -1,24 +1,25 @@
-## package
+# isfree
 
-This is the description of the package.
+Check if a domain is available using DNS.
 
 ## Installation
 
 ```bash
-pip install package
+pip install isfree
 ```
 
 ## Usage
 
-```python
-from package import add
-
-sum = add(1, 2)
-print(sum)
+```bash
+isfree example.com
 ```
 
 Output:
 
-```bash
-3
 ```
+✓ example.com is available
+✗ google.com is taken
+⚠ Invalid TLD: .invalidtld
+```
+
+Exit codes: `0` (available), `1` (taken), `2` (error)

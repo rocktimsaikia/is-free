@@ -1,3 +1,3 @@
-from .main import add
+from .main import check_domain_availability
 
-__all__ = ["add"]
+__all__ = ["check_domain_availability"]
