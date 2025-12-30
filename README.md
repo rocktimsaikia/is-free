@@ -1,5 +1,6 @@
 # isfree
 [![Tests](https://github.com/rocktimsaikia/is-free/actions/workflows/test-package.yml/badge.svg)](https://github.com/rocktimsaikia/is-free/actions/workflows/test-package.yml)
+[![Release](https://github.com/rocktimsaikia/is-free/actions/workflows/release.yml/badge.svg)](https://github.com/rocktimsaikia/is-free/actions/workflows/release.yml)
 
 Check if a domain is available using DNS.
 
